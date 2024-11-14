@@ -1,0 +1,80 @@
+
+.contenedor-switch
+{
+    position: relative;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+
+}
+.sensores
+{
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    grid-template-rows: repeat(2, 250px);
+    background-color: black;
+}
+
+.clase-switch, .clase-suministro
+{
+
+    position: relative; /* Relativo para acomodar los elementos internos del div*/
+    width: 150px;
+    height: 50px;
+    background-color: rgb(4, 69, 26);
+    border-radius: 30px;
+}
+.circulo-oxidacion, .circulo-suministro{
+    position: absolute; /* Cambiado a absolute para permitir movimiento */
+    top: 3px; /* Ajustado para centrar verticalmente dentro del div class-switch */
+    left: 5px; /* Ajustado para centrar horizontalmente */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* Círculo perfecto */
+    cursor: pointer;
+    background-color: aliceblue;
+  
+}
+.label-oxidacion,.label-suministro
+{
+    color: white;
+    font-size: 40px;
+}
+.texto-on
+{
+    position: absolute;
+    right: 80px;
+    top: 5px;
+    font-size: 30px;
+    opacity: 0;
+    color: white;
+   
+}
+.texto-off
+{
+    position: absolute;
+    left: 70px;
+    top:5px;
+    font-size: 30px;
+    color: white;
+    opacity: 1;
+
+}
+/* Desplazamiento del círculo cuando el switch está activado */
+#oxidacion:checked + .circulo-oxidacion,
+#suministro:checked + .circulo-suministro {
+    transform: translateX(95px); /* Mueve el círculo a la derecha */
+}
+/*se coloca asi el + significa el elemento adyacente y .texto-on sin nada pq esta a dentro del label */
+#oxidacion:checked +.circulo-oxidacion .texto-on,
+#suministro:checked +.circulo-suministro .texto-on {
+    opacity: 1; 
+}
+#oxidacion:checked +.circulo-oxidacion .texto-off,
+#suministro:checked +.circulo-suministro .texto-off {
+    opacity: 0; 
+}
+input[type="checkbox"] {
+    display: none; /* Oculta el input */
+}
